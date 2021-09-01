@@ -3,8 +3,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.generics import CreateAPIView
 from rest_framework.generics import DestroyAPIView
 from rest_framework.generics import UpdateAPIView
-from employee.serializers import EmployeeSerializer, DesignationSerializer, LocationSerializer, CountrySerializer, CompanySerializer, DepartmentSerializer, OfficeshiftSerializer
-from employee.models import Employee, Designation, Location, Country, Company, Department, Office_shift
+from employee.serializers import EmployeeSerializer, DesignationSerializer, LocationSerializer, CountrySerializer, CompanySerializer, DepartmentSerializer, OfficeshiftSerializer, RelationSerializer, EmpEmergencyContactSerializer
+from employee.models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts
 
 # Create your views here.
 class ListEmployeeAPIView(ListAPIView):
@@ -197,3 +197,54 @@ class DeleteOfficeShiftAPIView(DestroyAPIView):
     """This endpoint allows for deletion of a specific Office_shift from the database"""
     queryset = Office_shift.objects.all()
     serializer_class = OfficeshiftSerializer
+
+
+# ------------------------
+# Relation 
+# ------------------------
+
+class ListRelationAPIView(ListAPIView):
+    """This endpoint list all of the available Relation from the database"""
+    queryset =  Relation.objects.all()
+    serializer_class = RelationSerializer
+
+class CreateRelationAPIView(CreateAPIView):
+    """This endpoint allows for creation of a Relation by passing in the id of the Relation to update"""
+    queryset = Relation.objects.all()
+    serializer_class = RelationSerializer
+
+class UpdateRelationAPIView(UpdateAPIView):
+    """This endpoint allows for updating a specific Relation by passing in the id of the Relation to update"""
+    queryset = Relation.objects.all()
+    serializer_class = RelationSerializer
+
+class DeleteRelationAPIView(DestroyAPIView):
+    """This endpoint allows for deletion of a specific Relation from the database"""
+    queryset = Relation.objects.all()
+    serializer_class = RelationSerializer
+
+
+# ------------------------
+# EmpEmergencyContacts 
+# ------------------------
+
+class ListEmpEmergencyContactsAPIView(ListAPIView):
+    """This endpoint list all of the available EmpEmergencyContacts from the database"""
+    queryset =  EmpEmergencyContacts.objects.all()
+    serializer_class = EmpEmergencyContactSerializer
+
+class CreateEmpEmergencyContactsAPIView(CreateAPIView):
+    """This endpoint allows for creation of a EmpEmergencyContacts by passing in the id of the EmpEmergencyContacts to update"""
+    queryset = EmpEmergencyContacts.objects.all()
+    serializer_class = EmpEmergencyContactSerializer
+
+class UpdateEmpEmergencyContactsAPIView(UpdateAPIView):
+    """This endpoint allows for updating a specific EmpEmergencyContacts by passing in the id of the EmpEmergencyContacts to update"""
+    queryset = EmpEmergencyContacts.objects.all()
+    serializer_class = EmpEmergencyContactSerializer
+
+class DeleteEmpEmergencyContactsAPIView(DestroyAPIView):
+    """This endpoint allows for deletion of a specific EmpEmergencyContacts from the database"""
+    queryset = EmpEmergencyContacts.objects.all()
+    serializer_class = EmpEmergencyContactSerializer
+

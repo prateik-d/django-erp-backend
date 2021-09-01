@@ -112,6 +112,36 @@ class Employee(models.Model):
     date_created = models.DateField(auto_now=True)
     last_modified = models.DateField(auto_now=True)
 
-    def __str___(self):
+    def __str__(self):
         return self.name
 
+
+
+class Relation(models.Model):
+    title = models.CharField(max_length = 255, unique=True)
+    desc = models.TextField(null=True, blank=True)
+    active = models.BooleanField(default=True)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+# emp_emergency_contacts	
+
+class EmpEmergencyContacts(models.Model):
+    emp_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employees',  null=True,  blank=True)
+    relation = models.ForeignKey(Relation, on_delete=models.CASCADE, related_name='relation',  null=True,  blank=True)
+    name = models.CharField(max_length = 100)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length = 100)
+    address = models.TextField(null=True, blank=True)
+    city = models.CharField(max_length = 100)
+    state = models.CharField(max_length = 100)
+    country = models.ForeignKey(Country, on_delete=models.PROTECT, related_name='countries',  null=True,  blank=True)
+    zip = models.CharField(max_length = 100)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.name

@@ -47,4 +47,17 @@ urlpatterns = [
     path("office_shift/update/<int:pk>/",views.UpdateOfficeShiftAPIView.as_view(),name="update_Office_shift"),
     path("office_shift/delete/<int:pk>/",views.DeleteOfficeShiftAPIView.as_view(),name="delete_Office_shift"),
     
+    path("relation/",views.ListRelationAPIView.as_view(),name="Relation_list"),
+    path("relation/create/", views.CreateRelationAPIView.as_view(),name="Relation_create"),
+    path("relation/update/<int:pk>/",views.UpdateRelationAPIView.as_view(),name="update_Relation"),
+    path("relation/delete/<int:pk>/",views.DeleteRelationAPIView.as_view(),name="delete_Relation"),
+    
+    path("emp-emergency-contacts/",views.ListEmpEmergencyContactsAPIView.as_view(),name="EmpEmergencyContacts_list"),
+    path("emp-emergency-contacts/create/", views.CreateEmpEmergencyContactsAPIView.as_view(),name="EmpEmergencyContacts_create"),
+    path("emp-emergency-contacts/update/<int:pk>/",views.UpdateEmpEmergencyContactsAPIView.as_view(),name="update_EmpEmergencyContacts"),
+    path("emp-emergency-contacts/delete/<int:pk>/",views.DeleteEmpEmergencyContactsAPIView.as_view(),name="delete_EmpEmergencyContacts"),
+    
+    
+    
+    
 ]
