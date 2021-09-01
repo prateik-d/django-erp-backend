@@ -145,3 +145,19 @@ class EmpEmergencyContacts(models.Model):
 
     def __str__(self):
         return self.name
+
+# emp_social_networking
+
+class EmpSocialNetwork(models.Model):
+    emp_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_social_network',  null=True,  blank=True)
+    fb = models.TextField(null=True, blank=True)
+    twitter = models.TextField(null=True, blank=True)
+    linkedin = models.TextField(null=True, blank=True)
+    insta = models.TextField(null=True, blank=True)
+    youtube = models.TextField(null=True, blank=True)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.emp_id
+

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts
+from .models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts, EmpSocialNetwork
 
 class EmployeeSerializer(serializers.ModelSerializer):
 
@@ -70,6 +70,11 @@ class RelationSerializer(serializers.ModelSerializer):
 class EmpEmergencyContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = EmpEmergencyContacts
+        fields = "__all__"
+
+class EmpSocialNetworkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EmpSocialNetwork
         fields = "__all__"
     
 

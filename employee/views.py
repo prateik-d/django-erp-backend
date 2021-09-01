@@ -3,8 +3,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.generics import CreateAPIView
 from rest_framework.generics import DestroyAPIView
 from rest_framework.generics import UpdateAPIView
-from employee.serializers import EmployeeSerializer, DesignationSerializer, LocationSerializer, CountrySerializer, CompanySerializer, DepartmentSerializer, OfficeshiftSerializer, RelationSerializer, EmpEmergencyContactSerializer
-from employee.models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts
+from employee.serializers import EmployeeSerializer, DesignationSerializer, LocationSerializer, CountrySerializer, CompanySerializer, DepartmentSerializer, OfficeshiftSerializer, RelationSerializer, EmpEmergencyContactSerializer, EmpSocialNetworkSerializer
+from employee.models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts, EmpSocialNetwork
 
 # Create your views here.
 class ListEmployeeAPIView(ListAPIView):
@@ -247,4 +247,29 @@ class DeleteEmpEmergencyContactsAPIView(DestroyAPIView):
     """This endpoint allows for deletion of a specific EmpEmergencyContacts from the database"""
     queryset = EmpEmergencyContacts.objects.all()
     serializer_class = EmpEmergencyContactSerializer
+
+
+# ------------------------
+# EmpSocialNetwork 
+# ------------------------
+
+class ListEmpSocialNetworkAPIView(ListAPIView):
+    """This endpoint list all of the available EmpSocialNetwork from the database"""
+    queryset =  EmpSocialNetwork.objects.all()
+    serializer_class = EmpSocialNetworkSerializer
+
+class CreateEmpSocialNetworkAPIView(CreateAPIView):
+    """This endpoint allows for creation of a EmpSocialNetwork by passing in the id of the EmpSocialNetwork to update"""
+    queryset = EmpSocialNetwork.objects.all()
+    serializer_class = EmpSocialNetworkSerializer
+
+class UpdateEmpSocialNetworkAPIView(UpdateAPIView):
+    """This endpoint allows for updating a specific EmpSocialNetwork by passing in the id of the EmpSocialNetwork to update"""
+    queryset = EmpSocialNetwork.objects.all()
+    serializer_class = EmpSocialNetworkSerializer
+
+class DeleteEmpSocialNetworkAPIView(DestroyAPIView):
+    """This endpoint allows for deletion of a specific EmpSocialNetwork from the database"""
+    queryset = EmpSocialNetwork.objects.all()
+    serializer_class = EmpSocialNetworkSerializer
 

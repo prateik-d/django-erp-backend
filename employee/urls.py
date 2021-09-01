@@ -57,6 +57,11 @@ urlpatterns = [
     path("emp-emergency-contacts/update/<int:pk>/",views.UpdateEmpEmergencyContactsAPIView.as_view(),name="update_EmpEmergencyContacts"),
     path("emp-emergency-contacts/delete/<int:pk>/",views.DeleteEmpEmergencyContactsAPIView.as_view(),name="delete_EmpEmergencyContacts"),
     
+    path("emp-social-network/",views.ListEmpSocialNetworkAPIView.as_view(),name="EmpSocialNetwork_list"),
+    path("emp-social-network/create/", views.CreateEmpSocialNetworkAPIView.as_view(),name="EmpSocialNetwork_create"),
+    path("emp-social-network/update/<int:pk>/",views.UpdateEmpSocialNetworkAPIView.as_view(),name="update_EmpSocialNetwork"),
+    path("emp-social-network/delete/<int:pk>/",views.DeleteEmpSocialNetworkAPIView.as_view(),name="delete_EmpSocialNetwork"),
+    
     
     
     
