@@ -161,3 +161,74 @@ class EmpSocialNetwork(models.Model):
     def __str__(self):
         return self.emp_id
 
+
+class DocType(models.Model):
+    title = models.CharField(max_length = 255, unique=True)
+    desc = models.TextField(null=True, blank=True)
+    active = models.BooleanField(default=True)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+
+# emp_documents	
+
+class EmpDocuments(models.Model):
+    emp_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_doc_type',  null=True,  blank=True)
+    doc_type_id = models.ForeignKey(DocType, on_delete=models.CASCADE, related_name='doc_type',  null=True,  blank=True)
+    doc_title = models.CharField(max_length = 255, unique=True)
+    doc_desc = models.TextField(null=True, blank=True)    
+    date_of_doc_expired = models.DateField(auto_now_add=True)
+    send_notification_email_when_expired = models.BooleanField(default=False)
+    document_file = models.FileField(upload_to='documents/%Y/%m/%d')
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.emp_id
+
+
+# education_level_master	
+
+class EducationLevel(models.Model):
+    title = models.CharField(max_length = 255, unique=True)
+    level = models.CharField(max_length = 255)
+    desc = models.TextField(null=True, blank=True)
+    active = models.BooleanField(default=True)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class Language(models.Model):
+    title = models.CharField(max_length = 255, unique=True)
+    desc = models.TextField(null=True, blank=True)
+    active = models.BooleanField(default=True)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+
+# ManyToManyField
+
+# emp_qualificatiton	
+
+class EmpQualification(models.Model):
+    emp_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_qualification',  null=True,  blank=True)
+    school = models.CharField(max_length = 255, unique=True)
+    education = models.ForeignKey(EducationLevel, on_delete=models.CASCADE, related_name='education_level',  null=True,  blank=True)
+    specialization = models.CharField(max_length = 255, null=True, blank=True)
+    time_period_from = models.DateField(auto_created=True)
+    time_period_to = models.DateField(auto_created=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, related_name='language_qualification',  null=True,  blank=True)
+    desc = models.TextField(null=True, blank=True)
+    date_created = models.DateField(auto_now=True)
+    last_modified = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.emp_id

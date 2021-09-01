@@ -62,7 +62,20 @@ urlpatterns = [
     path("emp-social-network/update/<int:pk>/",views.UpdateEmpSocialNetworkAPIView.as_view(),name="update_EmpSocialNetwork"),
     path("emp-social-network/delete/<int:pk>/",views.DeleteEmpSocialNetworkAPIView.as_view(),name="delete_EmpSocialNetwork"),
     
+    path("education-level/",views.ListEducationLevelAPIView.as_view(),name="EducationLevel_list"),
+    path("education-level/create/", views.CreateEducationLevelAPIView.as_view(),name="EducationLevel_create"),
+    path("education-level/update/<int:pk>/",views.UpdateEducationLevelAPIView.as_view(),name="update_EducationLevel"),
+    path("education-level/delete/<int:pk>/",views.DeleteEducationLevelAPIView.as_view(),name="delete_EducationLevel"),
     
+    path("language/",views.ListLanguageAPIView.as_view(),name="Language_list"),
+    path("language/create/", views.CreateLanguageAPIView.as_view(),name="Language_create"),
+    path("language/update/<int:pk>/",views.UpdateLanguageAPIView.as_view(),name="update_Language"),
+    path("language/delete/<int:pk>/",views.DeleteLanguageAPIView.as_view(),name="delete_Language"),
+    
+    path("emp-qualification/",views.ListEmpQualificationAPIView.as_view(),name="EmpQualification_list"),
+    path("emp-qualification/create/", views.CreateEmpQualificationAPIView.as_view(),name="EmpQualification_create"),
+    path("emp-qualification/update/<int:pk>/",views.UpdateEmpQualificationAPIView.as_view(),name="update_EmpQualification"),
+    path("emp-qualification/delete/<int:pk>/",views.DeleteEmpQualificationAPIView.as_view(),name="delete_EmpQualification"),
     
     
 ]

@@ -3,8 +3,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.generics import CreateAPIView
 from rest_framework.generics import DestroyAPIView
 from rest_framework.generics import UpdateAPIView
-from employee.serializers import EmployeeSerializer, DesignationSerializer, LocationSerializer, CountrySerializer, CompanySerializer, DepartmentSerializer, OfficeshiftSerializer, RelationSerializer, EmpEmergencyContactSerializer, EmpSocialNetworkSerializer
-from employee.models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts, EmpSocialNetwork
+from employee.serializers import EmployeeSerializer, DesignationSerializer, LocationSerializer, CountrySerializer, CompanySerializer, DepartmentSerializer, OfficeshiftSerializer, RelationSerializer, EmpEmergencyContactSerializer, EmpSocialNetworkSerializer, EducationLevelSerializer, LanguageSerializer, EmpQualificationSerializer
+from employee.models import Employee, Designation, Location, Country, Company, Department, Office_shift, Relation, EmpEmergencyContacts, EmpSocialNetwork, EducationLevel, Language, EmpQualification
 
 # Create your views here.
 class ListEmployeeAPIView(ListAPIView):
@@ -273,3 +273,80 @@ class DeleteEmpSocialNetworkAPIView(DestroyAPIView):
     queryset = EmpSocialNetwork.objects.all()
     serializer_class = EmpSocialNetworkSerializer
 
+
+# ------------------------
+# EmpDocuent
+# ------------------------
+
+
+# ------------------------
+# EducationLevel 
+# ------------------------
+
+class ListEducationLevelAPIView(ListAPIView):
+    """This endpoint list all of the available EducationLevel from the database"""
+    queryset =  EducationLevel.objects.all()
+    serializer_class = EducationLevelSerializer
+
+class CreateEducationLevelAPIView(CreateAPIView):
+    """This endpoint allows for creation of a EducationLevel by passing in the id of the EducationLevel to update"""
+    queryset = EducationLevel.objects.all()
+    serializer_class = EducationLevelSerializer
+
+class UpdateEducationLevelAPIView(UpdateAPIView):
+    """This endpoint allows for updating a specific EducationLevel by passing in the id of the EducationLevel to update"""
+    queryset = EducationLevel.objects.all()
+    serializer_class = EducationLevelSerializer
+
+class DeleteEducationLevelAPIView(DestroyAPIView):
+    """This endpoint allows for deletion of a specific EducationLevel from the database"""
+    queryset = EducationLevel.objects.all()
+    serializer_class = EducationLevelSerializer
+
+# ------------------------
+# Language 
+# ------------------------
+
+class ListLanguageAPIView(ListAPIView):
+    """This endpoint list all of the available Language from the database"""
+    queryset =  Language.objects.all()
+    serializer_class = LanguageSerializer
+
+class CreateLanguageAPIView(CreateAPIView):
+    """This endpoint allows for creation of a Language by passing in the id of the Language to update"""
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+
+class UpdateLanguageAPIView(UpdateAPIView):
+    """This endpoint allows for updating a specific Language by passing in the id of the Language to update"""
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+
+class DeleteLanguageAPIView(DestroyAPIView):
+    """This endpoint allows for deletion of a specific Language from the database"""
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+
+# ------------------------
+# EmpQualification 
+# ------------------------
+
+class ListEmpQualificationAPIView(ListAPIView):
+    """This endpoint list all of the available EmpQualification from the database"""
+    queryset =  EmpQualification.objects.all()
+    serializer_class = EmpQualificationSerializer
+
+class CreateEmpQualificationAPIView(CreateAPIView):
+    """This endpoint allows for creation of a EmpQualification by passing in the id of the EmpQualification to update"""
+    queryset = EmpQualification.objects.all()
+    serializer_class = EmpQualificationSerializer
+
+class UpdateEmpQualificationAPIView(UpdateAPIView):
+    """This endpoint allows for updating a specific EmpQualification by passing in the id of the EmpQualification to update"""
+    queryset = EmpQualification.objects.all()
+    serializer_class = EmpQualificationSerializer
+
+class DeleteEmpQualificationAPIView(DestroyAPIView):
+    """This endpoint allows for deletion of a specific EmpQualification from the database"""
+    queryset = EmpQualification.objects.all()
+    serializer_class = EmpQualificationSerializer
